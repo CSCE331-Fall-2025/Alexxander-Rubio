@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="comm">
+
+    
+    <div class="toggle on" id="toggle"></div>
+
+    <div class="bulb-container">
+        <div class="wire"></div>
+        <div class="hood"></div>
+        <div class="light">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+<div class="navbar">
+    <a href="index.html">Landing Page</a>
+    <a href="techport.html">Technology Portfolio</a>
+    <a href="qualified.html">Qualifications</a>
+    <a href="service.html">Services</a>
+    <a href="aiandy.html">A.I. Page</a>
+</div>
+
+
+    <header>
+        <h1 class="readable-text">Community Service</h1>
+    </header>
+
+<section>
+    <h2 class="readable-text">Helping Where I Can:</h2>
+    <div class="text-box">
+        <h3>Teacher's Assistant:</h3>
+        <p>I was a TA for CSCE: 222, and would often help students with their homeworks or questions when needed.</p>
+        <h3>Small Volunteer Projects:</h3>
+        <p>I was involved in my high school's National Honor Society and did small volunteering jobs at recycling centers, nursing homes, and HAAM centers.</p>
+        <h3>Always able to help:</h3>
+        <p>I am a Community Leader on campus and do my best to offer aid whenever I can to students.</p>
+    </div>
+
+</section>
+
+    <script>
+let toggle = document.getElementById("toggle");
+let bulbOn = false;
+
+
+if(localStorage.getItem("bulbOn") !== null){
+    bulbOn = localStorage.getItem("bulbOn") === "true";
+}
+
+
+if(bulbOn){
+    toggle.classList.remove('off');
+    document.body.classList.remove('dim');
+    changeBulbColor('#fff');
+} else {
+    toggle.classList.add('off');
+    document.body.classList.add('dim');
+    changeBulbColor('#444');
+}
+
+toggle.onclick = function(){
+    bulbOn = !bulbOn;
+    localStorage.setItem("bulbOn", bulbOn);
+
+    if(bulbOn){
+        toggle.classList.remove('off');
+        document.body.classList.remove('dim');
+        changeBulbColor('#fff');
+    } else {
+        toggle.classList.add('off');
+        document.body.classList.add('dim');
+        changeBulbColor('#444');
+    }
+}
+
+function changeBulbColor(color){
+    document.documentElement.style.setProperty('--light-color', color);
+}
+
+
+    </script>
+
+</body>
+</html>

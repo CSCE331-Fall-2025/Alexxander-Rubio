@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qualifications</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="qual">
+
+    <div class="toggle on" id="toggle"></div>
+
+    <div class="bulb-container">
+        <div class="wire"></div>
+        <div class="hood"></div>
+        <div class="light">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+<div class="navbar">
+    <a href="index.html">Landing Page</a>
+    <a href="techport.html">Technology Portfolio</a>
+    <a href="qualified.html">Qualifications</a>
+    <a href="service.html">Services</a>
+    <a href="aiandy.html">A.I. Page</a>
+</div>
+
+    <header>
+        <h1 class="readable-text">Qualifications</h1>
+    </header>
+
+<section>
+    <h2 class="readable-text">Skills and Strengths:</h2>
+    <div class="text-box">
+        <p>Proficiency in software development such as C++, Ruby, and Python as well as an understanding in Dynamic and Static Languages. <br>
+            Adept at Web Design languages, including HTML/CSS/JS and Ruby on Rails.
+            <br> Skilled in Mathematics concepts including Discrete Math, Statistics, Linear Algebra, and Calculus.
+        </p>
+    
+    <h3><br>My Resume:</h3>
+    <p>
+    <a href="Alexxander Rubio's Resume.pdf" download>Download My Resume (PDF)</a>
+    </p>
+    </div>
+
+</section>
+
+
+    <script>
+let toggle = document.getElementById("toggle");
+let bulbOn = false;
+
+if(localStorage.getItem("bulbOn") !== null){
+    bulbOn = localStorage.getItem("bulbOn") === "true";
+}
+
+
+if(bulbOn){
+    toggle.classList.remove('off');
+    document.body.classList.remove('dim');
+    changeBulbColor('#fff');
+} else {
+    toggle.classList.add('off');
+    document.body.classList.add('dim');
+    changeBulbColor('#444');
+}
+
+toggle.onclick = function(){
+    bulbOn = !bulbOn;
+    localStorage.setItem("bulbOn", bulbOn);
+
+    if(bulbOn){
+        toggle.classList.remove('off');
+        document.body.classList.remove('dim');
+        changeBulbColor('#fff');
+    } else {
+        toggle.classList.add('off');
+        document.body.classList.add('dim');
+        changeBulbColor('#444');
+    }
+}
+
+function changeBulbColor(color){
+    document.documentElement.style.setProperty('--light-color', color);
+}
+
+
+    </script>
+
+</body>
+</html>

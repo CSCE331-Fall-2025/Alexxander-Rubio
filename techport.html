@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="tech">
+    
+    <div class="toggle on" id="toggle"></div>
+
+    <div class="bulb-container">
+        <div class="wire"></div>
+        <div class="hood"></div>
+        <div class="light">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+<div class="navbar">
+    <a href="index.html">Landing Page</a>
+    <a href="techport.html">Technology Portfolio</a>
+    <a href="qualified.html">Qualifications</a>
+    <a href="service.html">Services</a>
+    <a href="aiandy.html">A.I. Page</a>
+</div>
+
+
+    <header>
+        <h1 class="readable-text">My Projects</h1>
+    </header>
+
+<section>
+    <h2 class="readable-text">I have done many projects for my classes and my own personal interests<br>including but not limited to:</h2>
+    <div class="text-box">
+        <h2>Finished Projects:</h2>
+
+        <h3>This Website with <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">HTML</a>/<a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">CSS</a>/<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">JavaScript</a>:</h3>
+        <p>This website so far has been my largest project. This is my first time doing any implementation for html/css/js and I'm glad I was able to learn
+            as many features as I could, such as the lightning and switch mechanics, in just 3 weeks.</p>
+
+        <h3>Tetris in <a href="https://www.ruby-lang.org/en/" target="_blank">Ruby</a>:</h3>
+        <p>I have improved and corrected tetris code using the language Ruby for a project.
+            It included standard falling blocks with keyboard or mouse controls,
+            but also supported extra features such as a cheat block that costed points.</p>
+
+        <h3>A Language Interpreter in <a href="https://racket-lang.org/" target="_blank">Racket</a>:</h3>
+        <p>I have used Racket to create a proper interpreter for a made up language MUPL. It handled basic operations such as addition and implemented broader topics such as recursion.</p>
+
+        <h3>Small projects in <a href="https://isocpp.org/" target="_blank">C++</a>:</h3>
+        <p>I have completed numerous small projects in C++, most notably a Dungeon Crawler, a working Card Game, and Graphing Problems with Dijkstra's Algorithm.</p>
+
+        <h3>Data Manipulation and Graphing in <a href="https://www.python.org/" target="_blank">Python</a>:</h3>
+        <p>Some of the first projects I've done included reading and analyzing data trends using Python.</p>
+
+        <h2>Future Projects:</h2>
+
+        <h3>NASA Spacesuit User Interface Technology for Students <a href="https://www.nasa.gov/learning-resources/spacesuit-user-interface-technologies-for-students/" target="_blank">SUITS</a>:</h3>
+        <p>I am now starting the SUITS 2025-2026 project with a team of TAMUG Computer Science students to work with search patterns and machine learning concepts for space rover navigations.</p>
+
+        <h3><a href="https://en.wikipedia.org/wiki/Machine_learning" target="_blank">Machine Learning</a>:</h3>
+        <p>It is not an official project, but one of the key concepts I plan to understand and be able to apply by the end of the year is basic fundamentals of how machines read data and learn from it.
+            Having this knowledge is my main challenge for this semester as I transition to artificial intelligence.</p>
+    </div>
+</section>
+
+<script>
+let toggle = document.getElementById("toggle");
+let bulbOn = false;
+
+
+if(localStorage.getItem("bulbOn") !== null){
+    bulbOn = localStorage.getItem("bulbOn") === "true";
+}
+
+
+if(bulbOn){
+    toggle.classList.remove('off');
+    document.body.classList.remove('dim');
+    changeBulbColor('#fff');
+} else {
+    toggle.classList.add('off');
+    document.body.classList.add('dim');
+    changeBulbColor('#444');
+}
+
+toggle.onclick = function(){
+    bulbOn = !bulbOn;
+    localStorage.setItem("bulbOn", bulbOn);
+
+    if(bulbOn){
+        toggle.classList.remove('off');
+        document.body.classList.remove('dim');
+        changeBulbColor('#fff');
+    } else {
+        toggle.classList.add('off');
+        document.body.classList.add('dim');
+        changeBulbColor('#444');
+    }
+}
+
+function changeBulbColor(color){
+    document.documentElement.style.setProperty('--light-color', color);
+}
+
+
+    </script>
+
+</body>
+</html>

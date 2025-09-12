@@ -1,0 +1,298 @@
+:root {
+    --light-color: #fff;
+    --toggle-color: #828282;
+    --toggle-head-color: #dedede;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*brute forced background image changes*/
+body.landingpage::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("office3.jpg") center/cover no-repeat;
+    z-index: -1;
+    opacity: 1;
+    transition: opacity 1.5s ease;
+}
+
+body.tech::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("computer3.jpg") center/cover no-repeat;
+    z-index: -1; 
+    opacity: 0.55;
+    transition: opacity 1.5s ease;
+}
+
+body.qual::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("office2.jpg") center/cover no-repeat;
+    z-index: -1;
+    opacity: 0.6;
+    transition: opacity 1.5s ease;
+}
+
+body.comm::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("desk2.jpg") center/contain no-repeat;
+    z-index: -1;
+    opacity: 0.4;
+    transition: opacity 1.5s ease;
+}
+
+body.ai::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("workshop2.jpg") center/cover no-repeat;
+    z-index: -1;
+    opacity: 0.6;
+    transition: opacity 1.5s ease;
+}
+
+
+body.dim::before {
+    opacity: 0;
+    transition: opacity 1,5s ease;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: #222;
+    color: white;
+    font-family: Georgia;
+    text-align: center;
+    position: relative;
+}
+
+header {
+    position: relative;
+    z-index: 2;
+    padding-top: 30vh;
+    transition: opacity 2s ease;
+}
+
+section {
+    position: relative;
+    z-index: 2;
+    padding-top: 3vh;
+    transition: opacity 2s ease;
+}
+
+section p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+a {
+    color: lightblue;
+}
+
+/*Lamp Container*/
+.bulb-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: background 1.5s ease;
+}
+
+/*Wire*/
+.wire {
+    position: absolute;
+    top: 0;
+    width: 2vw;
+    height: 15vh;
+    background: gray;
+    z-index: 1;
+}
+
+body.dim .wire{
+    background: #333;
+    transition: background 2s ease;
+}
+
+/*Hood*/
+.hood {
+    position: absolute;
+    top: 12vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16vw;
+    height: 6vh;
+    background: #333;
+    border-radius: 10% 10% 10% 10%;
+    z-index: 3;
+}
+
+body.dim .hood{
+    background: #111;
+    transition: background 3s ease;
+}
+
+/*Light*/
+.light {
+    position: relative;
+    top: 16vh;
+    width: 15vw;
+    height: 4vh;
+    background: var(--light-color);
+    border-radius: 50%;
+    z-index: 2;
+    transition: background 2s ease;
+}
+
+/* Beam*/
+.light::after {
+    position: absolute;
+    content: '';
+    width: 80vw;
+    height: 100vh;
+    background: radial-gradient(ellipse at top, var(--light-color) 0%, transparent 80%);
+    clip-path: polygon(40% 0%, 60% 0%, 160% 100%, -60% 100%);
+    top: 4vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+    filter: blur(6vh);
+    opacity: 0.4;
+    transition: opacity 2s ease;
+}
+
+/* Beam fade*/
+body.dim .light::after {
+    opacity: 0;
+}
+
+/*Toggle Switch*/
+.toggle {
+    width: 4vw;
+    min-width: 50px;
+    height: 8vh;
+    min-height: 80px;
+    position: fixed;
+    top: 85vh;
+    right: 2vw;
+    background: white;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+/*Back of Toggle*/
+.toggle::after {
+    content: '';
+    width: 70%;
+    height: 40%;
+    background: white;
+    border: 1px solid gray;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    transform: translateY(-25%);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Toggle OFF*/
+.toggle.off::after {
+    transform: translateY(25%);
+    background: whitesmoke;
+}
+
+/* Dim text*/
+body.dim header,
+body.dim section {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+body:not(.dim) header,
+body:not(.dim) section{
+    opacity: 1;
+    transition: opacity 1.25s ease 1.25s;
+}
+
+/* Top navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8vh;
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    z-index: 200;
+}
+
+/* Navbar links */
+.navbar a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20vh;
+    height: 6vh;
+    border-radius: 6px;
+    font-size: 2vh;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Backdrop for Text*/
+.readable-text {
+    display: inline;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 0.05em 0.1em;
+    border-radius: 4px;
+}
+.text-box {
+    width: 60vw;
+    max-width: 80vw;
+    margin: 2vh auto;
+    padding: 2vh 2vw;
+    background-color: rgba(0, 0, 0, 0.7); 
+    color: white;
+    border-radius: 1vh;
+    line-height: 1.25;
+    box-shadow: 0 1vh 3vh rgba(0,0,0,0.5);
+    font-size: 2vh;
+}
