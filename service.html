@@ -14,10 +14,7 @@
     <div class="bulb-container">
         <div class="wire"></div>
         <div class="hood"></div>
-        <div class="light">
-            <span></span>
-            <span></span>
-        </div>
+        <div class="light"></div>
     </div>
 
 <div class="navbar">
@@ -26,6 +23,8 @@
     <a href="qualified.html">Qualifications</a>
     <a href="service.html">Services</a>
     <a href="aiandy.html">A.I. Page</a>
+    <a href="#" id="style-switch">Switch Style</a>
+
 </div>
 
 
@@ -46,47 +45,7 @@
 
 </section>
 
-    <script>
-let toggle = document.getElementById("toggle");
-let bulbOn = false;
-
-
-if(localStorage.getItem("bulbOn") !== null){
-    bulbOn = localStorage.getItem("bulbOn") === "true";
-}
-
-
-if(bulbOn){
-    toggle.classList.remove('off');
-    document.body.classList.remove('dim');
-    changeBulbColor('#fff');
-} else {
-    toggle.classList.add('off');
-    document.body.classList.add('dim');
-    changeBulbColor('#444');
-}
-
-toggle.onclick = function(){
-    bulbOn = !bulbOn;
-    localStorage.setItem("bulbOn", bulbOn);
-
-    if(bulbOn){
-        toggle.classList.remove('off');
-        document.body.classList.remove('dim');
-        changeBulbColor('#fff');
-    } else {
-        toggle.classList.add('off');
-        document.body.classList.add('dim');
-        changeBulbColor('#444');
-    }
-}
-
-function changeBulbColor(color){
-    document.documentElement.style.setProperty('--light-color', color);
-}
-
-
-    </script>
+<script src="script.js"></script>
 
 </body>
 </html>

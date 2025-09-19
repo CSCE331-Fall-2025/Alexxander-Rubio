@@ -11,58 +11,10 @@
 }
 
 /*brute forced background image changes*/
-body.landingpage::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url("office3.jpg") center/cover no-repeat;
-    z-index: -1;
-    opacity: 1;
-    transition: opacity 1.5s ease;
-}
-
-body.tech::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url("computer3.jpg") center/cover no-repeat;
-    z-index: -1; 
-    opacity: 0.55;
-    transition: opacity 1.5s ease;
-}
-
-body.qual::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url("office2.jpg") center/cover no-repeat;
-    z-index: -1;
-    opacity: 0.6;
-    transition: opacity 1.5s ease;
-}
-
-body.comm::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url("desk2.jpg") center/contain no-repeat;
-    z-index: -1;
-    opacity: 0.4;
-    transition: opacity 1.5s ease;
-}
-
+body.landingpage::before,
+body.tech::before,
+body.qual::before,
+body.comm::before,
 body.ai::before {
     content: "";
     position: fixed;
@@ -70,16 +22,21 @@ body.ai::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url("workshop2.jpg") center/cover no-repeat;
     z-index: -1;
-    opacity: 0.6;
     transition: opacity 1.5s ease;
 }
+
+body.landingpage::before { background: url("assets/office3.jpg") center/cover no-repeat; opacity: 1; }
+body.tech::before      { background: url("assets/computer3.jpg") center/cover no-repeat; opacity: 0.55; }
+body.qual::before      { background: url("assets/office2.jpg") center/cover no-repeat; opacity: 0.6; }
+body.comm::before      { background: url("assets/desk2.jpg") center/contain no-repeat; opacity: 0.4; }
+body.ai::before        { background: url("assets/workshop2.jpg") center/cover no-repeat; opacity: 0.6; }
+
 
 
 body.dim::before {
     opacity: 0;
-    transition: opacity 1,5s ease;
+    transition: opacity 1.5s ease;
 }
 
 body {
@@ -90,12 +47,13 @@ body {
     font-family: Georgia;
     text-align: center;
     position: relative;
+    overflow: hidden;
 }
 
 header {
     position: relative;
     z-index: 2;
-    padding-top: 30vh;
+    padding-top: 25vh;
     transition: opacity 2s ease;
 }
 
@@ -107,7 +65,7 @@ section {
 }
 
 section p {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     line-height: 1.5;
 }
 
@@ -121,10 +79,11 @@ a {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     transition: background 1.5s ease;
+    z-index: 0;
 }
 
 /*Wire*/
@@ -185,7 +144,7 @@ body.dim .hood{
     transform: translateX(-50%);
     z-index: 0;
     filter: blur(6vh);
-    opacity: 0.4;
+    opacity: 0.3;
     transition: opacity 2s ease;
 }
 
@@ -277,13 +236,19 @@ body:not(.dim) section{
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+
 /* Backdrop for Text*/
 .readable-text {
-    display: inline;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 0.05em 0.1em;
+    display: inline-block;
+    max-width: 60vw;
+    line-height: 1.5;
+    padding: 0.1em 0.3em;
+    background-color: rgba(0,0,0,0.7);
     border-radius: 4px;
+    text-align: center;
+    word-wrap: break-word;
 }
+
 .text-box {
     width: 60vw;
     max-width: 80vw;
@@ -295,4 +260,43 @@ body:not(.dim) section{
     line-height: 1.25;
     box-shadow: 0 1vh 3vh rgba(0,0,0,0.5);
     font-size: 2vh;
+}
+/*Making sure the photo doesnt appear in style1*/
+.profile-image {
+    display: none;
+}
+
+/* Hide the pdf completely */
+body.qual section.qual-container .qual-pdf iframe {
+    display: none;
+}
+
+/* AI Page layout fix */
+body.ai section.ai-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+    margin-top: 20vh;
+}
+
+
+/* Game box on top */
+body.ai #gameContainer {
+  width: 500px;
+  height: 400px;
+  border: 2px solid white;
+  background: black;
+  position: relative;
+}
+
+/* Prompts box below game */
+body.ai #promptsBox {
+  width: 500px;
+  min-height: 150px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid white;
+  padding: 10px;
+  font-size: 14px;
+  overflow-y: auto;
 }

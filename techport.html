@@ -6,17 +6,14 @@
     <title>Technical Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="tech">
+<body class="tech" style="overflow: auto;">
     
     <div class="toggle on" id="toggle"></div>
 
     <div class="bulb-container">
         <div class="wire"></div>
         <div class="hood"></div>
-        <div class="light">
-            <span></span>
-            <span></span>
-        </div>
+        <div class="light"></div>
     </div>
 <div class="navbar">
     <a href="index.html">Landing Page</a>
@@ -24,6 +21,8 @@
     <a href="qualified.html">Qualifications</a>
     <a href="service.html">Services</a>
     <a href="aiandy.html">A.I. Page</a>
+    <a href="#" id="style-switch">Switch Style</a>
+
 </div>
 
 
@@ -32,7 +31,8 @@
     </header>
 
 <section>
-    <h2 class="readable-text">I have done many projects for my classes and my own personal interests<br>including but not limited to:</h2>
+    <h2 class="readable-text">I have done many projects for my classes and my own personal interests including but not limited to:</h2>
+    <div class="scroll-box">
     <div class="text-box">
         <h2>Finished Projects:</h2>
 
@@ -63,49 +63,10 @@
         <p>It is not an official project, but one of the key concepts I plan to understand and be able to apply by the end of the year is basic fundamentals of how machines read data and learn from it.
             Having this knowledge is my main challenge for this semester as I transition to artificial intelligence.</p>
     </div>
+    </div>
 </section>
 
-<script>
-let toggle = document.getElementById("toggle");
-let bulbOn = false;
-
-
-if(localStorage.getItem("bulbOn") !== null){
-    bulbOn = localStorage.getItem("bulbOn") === "true";
-}
-
-
-if(bulbOn){
-    toggle.classList.remove('off');
-    document.body.classList.remove('dim');
-    changeBulbColor('#fff');
-} else {
-    toggle.classList.add('off');
-    document.body.classList.add('dim');
-    changeBulbColor('#444');
-}
-
-toggle.onclick = function(){
-    bulbOn = !bulbOn;
-    localStorage.setItem("bulbOn", bulbOn);
-
-    if(bulbOn){
-        toggle.classList.remove('off');
-        document.body.classList.remove('dim');
-        changeBulbColor('#fff');
-    } else {
-        toggle.classList.add('off');
-        document.body.classList.add('dim');
-        changeBulbColor('#444');
-    }
-}
-
-function changeBulbColor(color){
-    document.documentElement.style.setProperty('--light-color', color);
-}
-
-
-    </script>
+<script src="script.js"></script>
 
 </body>
 </html>

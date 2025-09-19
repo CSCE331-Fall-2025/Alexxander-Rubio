@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Asteroids Game</title>
+</head>
+<body class="ai">
+
+  <div class="bulb-container">
+    <div class="wire"></div>
+    <div class="hood"></div>
+    <div class="light"></div>
+  </div>
+
+  <div class="toggle on" id="toggle"></div>
+
+  <div class="navbar">
+    <a href="index.html">Landing Page</a>
+    <a href="techport.html">Technology Portfolio</a>
+    <a href="qualified.html">Qualifications</a>
+    <a href="service.html">Services</a>
+    <a href="aiandy.html">A.I. Page</a>
+    <a href="#" id="style-switch">Switch Style</a>
+  </div>
+
+  <section class="ai-box">
+    <div id="gameContainer">
+      <div id="score">Score: 0</div>
+      <canvas id="gameCanvas" width="500" height="400"></canvas>
+    </div>
+
+    <div id="promptsBox">
+      <b>Asteroids Game Prompts:</b><br>
+      1. Make me an HTML/CSS/JS code for the game asteroids.<br>
+      2. Have it fit within a smaller box on the screen.<br>
+      3. When the game is over can you simply reset it.<br>
+      4. Make the box even smaller.<br>
+      5. The asteroids do not respawn.<br>
+      6. Finally add a new text box at the very bottom that compiles all of the prompts I've given you for asteroids including this one.
+    </div>
+  </section>
+
+  <script src="AI.js"></script>
+</body>
+</html>

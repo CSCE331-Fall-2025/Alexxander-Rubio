@@ -13,10 +13,7 @@
     <div class="bulb-container">
         <div class="wire"></div>
         <div class="hood"></div>
-        <div class="light">
-            <span></span>
-            <span></span>
-        </div>
+        <div class="light"></div>
     </div>
 <div class="navbar">
     <a href="index.html">Landing Page</a>
@@ -24,69 +21,29 @@
     <a href="qualified.html">Qualifications</a>
     <a href="service.html">Services</a>
     <a href="aiandy.html">A.I. Page</a>
+    <a href="#" id="style-switch">Switch Style</a>
+
 </div>
-
-    <header>
-        <h1 class="readable-text">Qualifications</h1>
-    </header>
-
-<section>
-    <h2 class="readable-text">Skills and Strengths:</h2>
-    <div class="text-box">
-        <p>Proficiency in software development such as C++, Ruby, and Python as well as an understanding in Dynamic and Static Languages. <br>
-            Adept at Web Design languages, including HTML/CSS/JS and Ruby on Rails.
-            <br> Skilled in Mathematics concepts including Discrete Math, Statistics, Linear Algebra, and Calculus.
-        </p>
-    
-    <h3><br>My Resume:</h3>
-    <p>
-    <a href="Alexxander Rubio's Resume.pdf" download>Download My Resume (PDF)</a>
-    </p>
+<section class="qual-container">
+    <div class="qual-text">
+        <header>
+            <h1 class="readable-text">Qualifications</h1>
+        </header>
+        <br><h2 class="readable-text">Skills and Strengths:</h2>
+        <div class="text-box">
+        <p>Proficiency in software development such as C++, Ruby, and Python as well as a strong understanding of dynamic and static languages.</p>
+        <p>Adept at web design languages, including HTML/CSS/JS.</p>
+        <p>Skilled in mathematics concepts including Discrete Math, Statistics, Linear Algebra, and Calculus.</p>
+        </div>
     </div>
 
+    <div class="qual-pdf">
+        <iframe src="assets/resume.pdf" frameborder="0"></iframe>
+        <div class="readable-text"><a href="assets/resume.pdf" download class="resume-link">Download Resume</a></div>
+    </div>
 </section>
 
-
-    <script>
-let toggle = document.getElementById("toggle");
-let bulbOn = false;
-
-if(localStorage.getItem("bulbOn") !== null){
-    bulbOn = localStorage.getItem("bulbOn") === "true";
-}
-
-
-if(bulbOn){
-    toggle.classList.remove('off');
-    document.body.classList.remove('dim');
-    changeBulbColor('#fff');
-} else {
-    toggle.classList.add('off');
-    document.body.classList.add('dim');
-    changeBulbColor('#444');
-}
-
-toggle.onclick = function(){
-    bulbOn = !bulbOn;
-    localStorage.setItem("bulbOn", bulbOn);
-
-    if(bulbOn){
-        toggle.classList.remove('off');
-        document.body.classList.remove('dim');
-        changeBulbColor('#fff');
-    } else {
-        toggle.classList.add('off');
-        document.body.classList.add('dim');
-        changeBulbColor('#444');
-    }
-}
-
-function changeBulbColor(color){
-    document.documentElement.style.setProperty('--light-color', color);
-}
-
-
-    </script>
+<script src="script.js"></script>
 
 </body>
 </html>
